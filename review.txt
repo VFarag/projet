@@ -1,0 +1,9 @@
+Le code est clair malgré un sujet complexe (attention la fonction twoOptSwap n'est jamais appelée)
+Vous pouvez séparer votre code en fonctions plutôt que de séparer les blocs avec des commentaires,
+cela vous aménera très vite à vous poser la question "où est sensé aller ce bout de code", réutiliser les fonctionalités par petits bouts,
+facilitera l'implémentation des tests, des sessions de debug, seront plus faciles a maintenir / modifier sans avoir peur de tout casser etc.
+
+Certains noms peuvent être plus explicites (V et adj?)
+
+
+18/20

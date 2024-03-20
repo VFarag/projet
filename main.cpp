@@ -35,13 +35,15 @@ int solve_travelling_salesman_problem() {
     std::uniform_int_distribution<> distrib(0, 250);
 
     // Génération d'emplacements aléatoires uniques
+    // Si vous avez senti le besoin de ce commentaire, c'est pour décomposer les différentes étapes
+    // Ici vous avez fait le plus dur en trouvant un nom très précis de fonction : generate_random_unique_positions
     std::vector<Location> locations;
     while (locations.size() < 6) {
         double x = distrib(gen);
         double y = distrib(gen);
         Location newLocation(x, y);
         
-        // Assurer que le nouvel emplacement est unique avant de l'ajouter à la liste
+        // Assurer que le nouvel emplacement est unique avant de l'ajouter à la liste -> add_if_unique()
         if (std::none_of(locations.begin(), locations.end(), [&newLocation](const Location& loc) {
             return newLocation.getX() == loc.getX() && newLocation.getY() == loc.getY();
         })) {
@@ -57,7 +59,10 @@ int solve_travelling_salesman_problem() {
     for (int i = 0; i < graph.getV(); ++i) {
         for (int j = i + 1; j < graph.getV(); ++j) {
             allEdges.emplace_back(i, j);
-            allWeights.push_back(static_cast<int>(locations[i].distanceTo(locations[j])));
+            allWeights.push_back(static_cast<int>(locations[i].distanceTo(locations[j]))); 
+            // on préfère untiliser les méthodes si possible -> locations.get(i)
+            // cela revient exactement au même mais abstrait la logique avec les pointeurs
+            // et peut aider à debugger en cas d'erreur (message d'erreur plus simple à comprendre)
             graph.addEdge(i, j, allWeights.back());
         }
     }

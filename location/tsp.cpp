@@ -56,9 +56,12 @@ Tour findBestTour(const std::vector<Location>& locations) {
         tourLocations.push_back(locations[currentIndex]);
     }
     return Tour(tourLocations);
+    // Le fait de retourner l'objet oblige le code appelant
+    // a créer une seconde copie
 }
 
 Tour twoOptSwap(const std::vector<Location>& inputTour) {
+    // très clair mais jamais appelé ?
     std::vector<Location> tour = inputTour;
     bool improvement = true;
     while (improvement) {
