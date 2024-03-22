@@ -15,8 +15,8 @@ public:
     int getV() const { return V; }
 
 private:
-    int V;
-    std::vector<std::vector<std::pair<int, double>>> adj;
+    int V; // pourquoi V ?
+    std::vector<std::vector<std::pair<int, double>>> adj; // pourquoi ne pas donner un nom complet?
 };
 
 #endif

@@ -4,6 +4,7 @@
 Location::Location(double x, double y) : x(x), y(y) {}
 
 double Location::distanceTo(const Location& other) const {
+    // std::hypot
     return std::sqrt(std::pow(x - other.x, 2) + std::pow(y - other.y, 2));
 }
 
